@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,50 +17,82 @@ using System.Windows.Threading;
 
 namespace TimerGUI
 {
-    /// <summary>
-    /// Interaktionslogik für ShutDownPage.xaml
-    /// </summary>
     public partial class ShutDownPage : Page
     {
+        DispatcherTimer ShutdownTimer = new DispatcherTimer();
+
+        int min, sec = 0, hour;
+
+        bool isClicked = false;
+
         public ShutDownPage()
         {
             InitializeComponent();
         }
 
-        void FillBoxesWithNumbers(object sender, RoutedEventArgs args)
+        void FillMinBoxWithNumbers(object sender, RoutedEventArgs args)
         {
+            int runs = 60;
             List<string> numbers = new List<string>();
-            for (int i = 1; i <= 60; i++)
+
+            for (int i = 1; i <= runs; i++)
             {
                 numbers.Add(i.ToString());
             }
 
-            //CountDownListBox.ItemsSource = numbers;
-            //WorkOutWorkMin.ItemsSource = numbers;
-            //WorkOutWorkSec.ItemsSource = numbers;
-            //WotkOutPauseMin.ItemsSource = numbers;
-            //WotkOutPauseSec.ItemsSource = numbers;
-            //RepsCount.ItemsSource = numbers;
+            ShutDownMinComboBox.ItemsSource = numbers;
+        }
+
+        void FillHourBoxWithNumbers(object sender, RoutedEventArgs args)
+        {
+            int runs = 48;
+            List<string> numbers = new List<string>();
+
+            for (int i = 1; i <= runs; i++)
+            {
+                numbers.Add(i.ToString());
+            }
+
+            ShutDownHourComboBox.ItemsSource = numbers;
         }
 
         private void StartShutdown(object sender, RoutedEventArgs e)
         {
+            if (!isClicked)
+            {
+                isClicked = true;
+                hour = Convert.ToInt32(ShutDownHourComboBox.SelectedItem);
+                min = Convert.ToInt32(ShutDownMinComboBox.SelectedItem);
 
+                ShutdownTimer.Interval = TimeSpan.FromSeconds(1);
+                ShutdownTimer.Tick += ShutdownTimer_Tick;
+                ShutdownTimer.Start();
+            }
+        }
+
+        private void ShutdownTimer_Tick(object sender, EventArgs e)
+        {
+            if (sec > 0)
+            {
+                sec--;
+            }
+            if (min > 0 && sec == 0)
+            {
+                min--;
+                sec = 59;
+            }
+            if (hour > 0 && min == 0 && sec == 0)
+            {
+                hour--;
+                min = 59;
+                sec = 59;
+            }
+            if(hour == 0 && min == 0 && sec == 0)
+            {
+                Process.Start("shutdown", "/s /t 0");
+            }
+
+            ShutDownTimerLabel.Content = hour.ToString() + ":" + min.ToString() + ":" + sec.ToString();
         }
     }
-
-    //public partial class LeistenFunctions : Window
-    //{
-    //    public void MinimizeButton(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
-
-    //    public void CloseWindow(object sender, RoutedEventArgs e) => this.Close();
-
-    //    public void Window_MouseDown2(object sender, MouseButtonEventArgs e)
-    //    {
-    //        if (e.LeftButton == MouseButtonState.Pressed)
-    //        {
-    //            this.DragMove();
-    //        }
-    //    }
-    //}
 }

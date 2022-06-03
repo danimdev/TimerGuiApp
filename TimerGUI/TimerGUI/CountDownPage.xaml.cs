@@ -26,7 +26,6 @@ namespace TimerGUI
 
         bool isCountDownStarted = false;
         bool isAlreadyStarted = false;
-        bool startCountdownIsPressed = false;
 
         DispatcherTimer CountDownTimer = new DispatcherTimer();
 
