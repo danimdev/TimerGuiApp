@@ -88,11 +88,6 @@ namespace TimerGUI
             }
 
             CountDownListBox.ItemsSource = numbers;
-            //WorkOutWorkMin.ItemsSource = numbers;
-            //WorkOutWorkSec.ItemsSource = numbers;
-            //WotkOutPauseMin.ItemsSource = numbers;
-            //WotkOutPauseSec.ItemsSource = numbers;
-            //RepsCount.ItemsSource = numbers;
         }
 
         private void ResetCountdown(object sender, RoutedEventArgs e)

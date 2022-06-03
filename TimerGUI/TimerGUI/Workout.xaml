@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TimerGUI"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="300"
-      Title="Page1">
+      Title="Workout">
 
     <Grid>
         <Grid.RowDefinitions>
