@@ -9,7 +9,7 @@
         Title="MainWindow" Height="450" Width="300"
         ResizeMode="CanMinimize" AllowsTransparency="True">
     <Grid MouseDown="Window_MouseDown">
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -20,8 +20,6 @@
 
         <Frame x:Name="MainFrame" Grid.Column="0" Grid.Row="1"  NavigationUIVisibility="Hidden"/>
         <Border Background="Gray"/>
-        <!--<Border Background="IndianRed" Grid.Column="0" Grid.RowSpan="2" MouseDown="Window_MouseDown"/>-->
-        <!--<Border Background="BlueViolet" Grid.Column="1" MouseDown="Window_MouseDown"/>-->
 
         <StackPanel Grid.Column="2" Orientation="Horizontal">
             <Button Click="ShutDownPage" Content="Shutdown" Margin="0,0,230,0" Padding="3" Foreground="Black" Background="LightSeaGreen" BorderBrush="LightSeaGreen"/>
@@ -29,91 +27,11 @@
             <Button Click="WorkoutPage" Content="Workout" Margin="-170,0,100,0" Background="BlueViolet" BorderBrush="BlueViolet"/>
         </StackPanel>
 
-
-        <!--<Border Background="LightSeaGreen" Grid.Column="2" MouseDown="Window_MouseDown"/>-->
         <Button Grid.Column="2" Margin="260,0,0,0" Background="Transparent" BorderBrush="Transparent" Click="CloseWindow">
             <Image Source="Assets/XOut.png"/>
         </Button>
         <Button Grid.Column="2" Margin="230,0,30,0" Background="Transparent" BorderBrush="Transparent" Click="MinimizeButton">
             <Image Source="Assets/minimize.png"/>
         </Button>
-        
-        <!--#region countdown timer-->
-        <!--<Grid Grid.Row="1" Grid.Column="0">
-
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            
-            <StackPanel Grid.Column="0" Grid.Row="0">
-                <Label Content="Countdown Timer" Foreground="White" FontSize="20" Margin="0,0,0,20" HorizontalAlignment="Center"/>
-                <ComboBox Loaded="FillBoxesWithNumbers" x:Name="CountDownListBox"  Background="Transparent" Width="50" HorizontalAlignment="Center" />
-                <Button Click="StartCountdown" Content="Start Countdown" Margin="50,20,50,0" Background="Transparent" FontSize="20" Foreground="White"/>
-                <Button Click="ResetCountdown" Content="Reset Countdown" Margin="50,20,50,0" FontSize="20" Foreground="White" Background="Transparent"/>
-            </StackPanel>
-
-            <Label x:Name="CountDownLabel" Content="00:00" Grid.Row="1" FontSize="40" Foreground="White"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        </Grid>-->
-        <!--#endregion countdown timer-->
-        
-        <!--#region workout timer-->
-        <!--<Grid Grid.Column="1" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Border Grid.RowSpan="2" Background="BlueViolet"/>
-
-            <StackPanel Grid.Row="0">
-                <Label Content="Workout Timer" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <Label Content="Reps" Foreground="White" FontSize="20"/>
-                    <ComboBox x:Name="RepsCount" Width="60" Height="25"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
-                    <Label Foreground="White" Content="Work "/>
-                    <ComboBox x:Name="WorkOutWorkMin" Loaded="FillBoxesWithNumbers" Width="40"/>
-                    <ComboBox x:Name="WorkOutWorkSec" Loaded="FillBoxesWithNumbers" Width="40"/>
-                    <Label Foreground="White" Content="Pause "/>
-                    <ComboBox x:Name="WotkOutPauseMin" Loaded="FillBoxesWithNumbers" Width="40"/>
-                    <ComboBox x:Name="WotkOutPauseSec" Loaded="FillBoxesWithNumbers" Width="40"/>
-                </StackPanel>
-                <Button Click="StartWork" Content="Start Work" Margin="50,20,50,0" Background="Transparent" Foreground="White" FontSize="20"/>
-            </StackPanel>
-
-            <Label Grid.Row="1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
-                00:00
-            </Label>
-        </Grid>-->
-        <!--#endregion workout timer-->
-        
-        <!--<Grid Grid.Column="2" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Border Background="LightSeaGreen" Grid.RowSpan="2"/>
-
-            <StackPanel Grid.Row="0">
-                <Label Content="Shutdown Timer" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Label Content="Min"/>
-                    <ComboBox Width="30"/>
-                    <Label Content="Sec"/>
-                    <ComboBox Width="30"/>
-                </StackPanel>
-                <Button Click="StartShutdown" Content="Start Shutdown" Margin="50,20,50,0" Background="Transparent" FontSize="20" Foreground="White"/>
-            </StackPanel>
-
-            <Label Grid.Row="1" Content="00:00" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-        </Grid>
-        -->
     </Grid>
-    <!--we need 3 things:
-    countdown timer
-    workout timer
-    shutdown timer-->
 </Window>
