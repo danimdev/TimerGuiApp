@@ -24,17 +24,19 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
                 <Label Foreground="White" Content="Work "/>
-                <ComboBox x:Name="WorkOutWorkMin" Loaded="FillBoxesWithNumbers" Width="40"/>
-                <ComboBox x:Name="WorkOutWorkSec" Loaded="FillBoxesWithNumbers" Width="40"/>
+                <ComboBox x:Name="WorkOutWorkMin" Loaded="FillBoxes" Width="40"/>
+                <ComboBox x:Name="WorkOutWorkSec" Loaded="FillBoxes" Width="40"/>
                 <Label Foreground="White" Content="Pause "/>
-                <ComboBox x:Name="WotkOutPauseMin" Loaded="FillBoxesWithNumbers" Width="40"/>
-                <ComboBox x:Name="WotkOutPauseSec" Loaded="FillBoxesWithNumbers" Width="40"/>
+                <ComboBox x:Name="WotkOutPauseMin" Loaded="FillBoxes" Width="40"/>
+                <ComboBox x:Name="WotkOutPauseSec" Loaded="FillBoxes" Width="40"/>
             </StackPanel>
             <Button Click="StartWork" Content="Start Work" Margin="50,20,50,0" Background="Transparent" Foreground="White" FontSize="20"/>
         </StackPanel>
 
-        <Label Grid.Row="1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">
-            00:00
-        </Label>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label x:Name="WorkoutMode" Content="Work" HorizontalAlignment="Center" FontSize="30" Foreground="White"/>
+            <Label x:Name="WorkoutTimeLabel" Grid.Row="1" Foreground="White" FontSize="40" Content="00:00"/>
+            <Label x:Name="RepCount" FontSize="20" HorizontalAlignment="Center" Content="Reps Left: 0" Foreground="White"/>
+        </StackPanel>
     </Grid>
 </Page>
