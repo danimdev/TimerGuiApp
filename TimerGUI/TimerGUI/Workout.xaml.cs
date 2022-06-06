@@ -128,16 +128,7 @@ namespace TimerGUI
         private void PauseTimer(object sender, EventArgs e)
         {
             ShowWorkTime(pauseMin, pauseSec);
-            if (pauseSec > 0)
-            {
-                pauseSec--;
-            }
-            if(pauseMin > 0 && pauseSec == 0)
-            {
-                pauseMin--;
-                pauseSec = 59;
-            }
-            if(pauseMin == 0 && pauseSec == 0)
+            if (pauseMin == 0 && pauseSec == 0)
             {
                 reps--;
                 RepCount.Content = "Reps Left: " + reps.ToString();
@@ -151,6 +142,15 @@ namespace TimerGUI
                 isWork = true;
                 workDispatchertimer.Start();
                 pauseDispTimer.Stop();
+            }
+            else if (pauseSec > 0)
+            {
+                pauseSec--;
+            }
+            else if(pauseMin > 0 && pauseSec == 0)
+            {
+                pauseMin--;
+                pauseSec = 59;
             }
         }
 
