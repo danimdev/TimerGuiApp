@@ -6,12 +6,17 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <PackageIcon>imageedit_2_8458168585.jpg</PackageIcon>
+    <ApplicationIcon>Assets\ProgramIcon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\ProgramIcon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Assets/XOut.png" />
     <Resource Include="Assets/minimize.png" />
-    <Resource Include="Assets/imageedit_2_8458168585.jpg"/>
+    <Resource Include="Assets/imageedit_2_8458168585.jpg" />
   </ItemGroup>
 
   <ItemGroup>
