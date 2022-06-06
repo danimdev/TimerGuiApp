@@ -1,4 +1,4 @@
-﻿<Window x:Class="TimerGUI.MainWindow" WindowStyle="None"
+﻿<Window x:Class="TimerGUI.MainWindow"
         WindowStartupLocation="CenterScreen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,6 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimerGUI"
         mc:Ignorable="d"
+        Icon="Assets/imageedit_2_8458168585.jpg"
+        WindowStyle="None"
         Title="MainWindow" Height="450" Width="300"
         ResizeMode="CanMinimize" AllowsTransparency="True">
     <Grid MouseDown="Window_MouseDown">

@@ -5,11 +5,20 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <PackageIcon>imageedit_2_8458168585.jpg</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Resource Include="Assets/XOut.png"/>
-    <Resource Include="Assets/minimize.png"/>
+    <Resource Include="Assets/XOut.png" />
+    <Resource Include="Assets/minimize.png" />
+    <Resource Include="Assets/imageedit_2_8458168585.jpg"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\imageedit_2_8458168585.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   
