@@ -25,17 +25,15 @@ namespace TimerGUI
         int pauseMin, pauseSec;
 
         int repRepeatMin, repRepeatSec;
+        int repeatPauseMin, repeatPauseSec;
 
         int reps = 0;
 
         bool isClicked = false;
 
-        enum WORKMODE
-        {
-            WORK,
-            PAUSE,
-            IDLE
-        }
+        bool isWork = true;
+
+        string showPauseSec;
 
         public Page1()
         {
@@ -77,10 +75,16 @@ namespace TimerGUI
                 reps = Convert.ToInt32(RepsCount.SelectedItem);
 
                 RepCount.Content = "Reps Left: " + reps.ToString();
-                ShowWorkTime();
+                ShowWorkTime(workMin,workSec);
+
+                WorkoutMode.Content = "Working";
+                WorkoutMode.Foreground = Brushes.LawnGreen;
 
                 repRepeatMin = workMin;
                 repRepeatSec = workSec;
+
+                repeatPauseMin = pauseMin;
+                repeatPauseSec = pauseSec;
 
                 workDispatchertimer.Start();
             }
@@ -88,14 +92,10 @@ namespace TimerGUI
 
         private void WorkTimer(object sender, EventArgs e)
         {
+            ShowWorkTime(workMin, workSec);
             if (workMin == 0 && workSec == 0)
             {
-                if (reps > 0) {
-                    --reps;
-                    workMin = repRepeatMin;
-                    workSec = repRepeatSec;
-                }
-
+                isWork = false;
                 if (reps == 0)
                 {
                     workSec = 0;
@@ -104,7 +104,15 @@ namespace TimerGUI
                     isClicked = false;
                 }
 
-                RepCount.Content = "Reps Left: " + reps.ToString();
+                if (reps > 0 && !isWork) {
+                    WorkoutMode.Content = "Pause";
+                    WorkoutMode.Foreground = Brushes.Red;
+                    pauseDispTimer.Start();
+                    workDispatchertimer.Stop();
+                }
+
+                workMin = repRepeatMin;
+                workSec = repRepeatSec;
             }
             else if (workSec > 0)
             {
@@ -115,24 +123,47 @@ namespace TimerGUI
                 workMin--;
                 workSec = 59;
             }
-
-            ShowWorkTime();
         }
 
         private void PauseTimer(object sender, EventArgs e)
         {
+            ShowWorkTime(pauseMin, pauseSec);
+            if (pauseSec > 0)
+            {
+                pauseSec--;
+            }
+            if(pauseMin > 0 && pauseSec == 0)
+            {
+                pauseMin--;
+                pauseSec = 59;
+            }
+            if(pauseMin == 0 && pauseSec == 0)
+            {
+                reps--;
+                RepCount.Content = "Reps Left: " + reps.ToString();
+
+                pauseMin = repeatPauseMin;
+                pauseSec = repeatPauseSec;
+
+                WorkoutMode.Content = "Working";
+                WorkoutMode.Foreground = Brushes.LawnGreen;
+
+                isWork = true;
+                workDispatchertimer.Start();
+                pauseDispTimer.Stop();
+            }
         }
 
-        void ShowWorkTime()
+        void ShowWorkTime(int min,int sec)
         {
-            if (workMin < 10 && workSec < 10)
-                WorkoutTimeLabel.Content = "0" + workMin.ToString() + ":" + "0" + workSec.ToString();
-            else if (workMin < 10)
-                WorkoutTimeLabel.Content = "0" + workMin.ToString() + ":" + workSec.ToString();
-            else if (workSec < 10)
-                WorkoutTimeLabel.Content = workMin.ToString() + ":" + "0" + workSec.ToString();
-            else if (workSec > 9 && workSec > 9)
-                WorkoutTimeLabel.Content = workMin.ToString() + ":" + workSec.ToString();
+            if (min < 10 && sec < 10)
+                WorkoutTimeLabel.Content = "0" + min.ToString() + ":" + "0" + sec.ToString();
+            else if (min < 10)
+                WorkoutTimeLabel.Content = "0" + min.ToString() + ":" + sec.ToString();
+            else if (sec < 10)
+                WorkoutTimeLabel.Content = min.ToString() + ":" + "0" + sec.ToString();
+            else if (min > 9 && sec > 9)
+                WorkoutTimeLabel.Content = min.ToString() + ":" + sec.ToString();
         }
     }
 }
