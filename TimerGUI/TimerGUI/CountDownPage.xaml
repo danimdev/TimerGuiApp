@@ -28,7 +28,8 @@
 
             <StackPanel Grid.Column="0" Grid.Row="0">
                 <Label Content="Countdown Timer" Foreground="White" FontSize="20" Margin="0,0,0,20" HorizontalAlignment="Center"/>
-                <ComboBox Loaded="FillBoxesWithNumbers" x:Name="CountDownListBox"  Background="Transparent" Width="50" HorizontalAlignment="Center" />
+                <ComboBox Loaded="FillBoxesWithNumbers" x:Name="CountDownListBox" Width="50" HorizontalAlignment="Center">
+                </ComboBox>
                 <Button Click="StartCountdown" Content="Start Countdown" Margin="50,20,50,0" Background="Transparent" FontSize="20" Foreground="White"/>
                 <Button Click="ResetCountdown" Content="Reset Countdown" Margin="50,20,50,0" FontSize="20" Foreground="White" Background="Transparent"/>
             </StackPanel>
