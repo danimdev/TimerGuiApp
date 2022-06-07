@@ -30,7 +30,10 @@
                 <ComboBox x:Name="WotkOutPauseMin" Loaded="FillBoxes" Width="40"/>
                 <ComboBox x:Name="WotkOutPauseSec" Loaded="FillBoxes" Width="40"/>
             </StackPanel>
-            <Button Click="StartWork" Content="Start Work" Margin="50,20,50,0" Background="Transparent" Foreground="White" FontSize="20"/>
+            <StackPanel Orientation="Vertical" Margin="80,0">
+                <Button Click="StartWork" Content="Start Work" Background="Transparent" Foreground="White" FontSize="20"/>
+                <Button Click="ResetWork" Content="Reset Work" Background="Transparent" Foreground="White" FontSize="20"/>
+            </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">

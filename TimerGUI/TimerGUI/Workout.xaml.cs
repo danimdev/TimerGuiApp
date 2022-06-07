@@ -61,6 +61,17 @@ namespace TimerGUI
             RepsCount.ItemsSource = numbers;
         }
 
+        private void ResetWork(object sender, RoutedEventArgs e)
+        {
+            workDispatchertimer.Stop();
+            pauseDispTimer.Stop();
+
+            WorkoutTimeLabel.Content = "00:00";
+            RepCount.Content = "Reps Left: 0";
+
+            isClicked = false;
+        }
+
         private void StartWork(object sender, RoutedEventArgs e)
         {
             if (!isClicked)

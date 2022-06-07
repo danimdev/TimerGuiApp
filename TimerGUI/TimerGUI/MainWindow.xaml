@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <Frame x:Name="MainFrame" Grid.Column="0" Grid.Row="1"  NavigationUIVisibility="Hidden"/>
-        <Border Background="Gray"/>
+        <Border Background="Transparent"/>
 
         <StackPanel Grid.Column="2" Orientation="Horizontal">
             <Button Click="ShutDownPage" Content="Shutdown" Margin="0,0,230,0" Padding="3" Foreground="Black" Background="LightSeaGreen" BorderBrush="LightSeaGreen"/>

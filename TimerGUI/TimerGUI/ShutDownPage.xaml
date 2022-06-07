@@ -33,7 +33,10 @@
                     <Label Content="Min"/>
                     <ComboBox x:Name="ShutDownMinComboBox" Loaded="FillMinBoxWithNumbers" Width="40"/>
                 </StackPanel>
-                <Button Click="StartShutdown" Content="Start Shutdown" Margin="50,20,50,0" Background="Transparent" FontSize="20" Foreground="White"/>
+                <StackPanel Margin="60,20">
+                    <Button Click="StartShutdown" Margin="0,20" Content="Start Shutdown" Background="Transparent" FontSize="20" Foreground="White"/>
+                    <Button Click="ResetShutdown" Content="Reset Shutdown" Background="Transparent" Foreground="White" FontSize="20"/>
+                </StackPanel>
             </StackPanel>
 
             <Label x:Name="ShutDownTimerLabel" Grid.Row="1" Content="00:00:00" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>

@@ -56,6 +56,13 @@ namespace TimerGUI
             ShutDownHourComboBox.ItemsSource = numbers;
         }
 
+        private void ResetShutdown(object sender, RoutedEventArgs e)
+        {
+            ShutdownTimer.Stop();
+            ShutDownTimerLabel.Content = "00:00:00";
+            isClicked = false;
+        }
+
         private void StartShutdown(object sender, RoutedEventArgs e)
         {
             if (!isClicked)
